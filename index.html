@@ -39,7 +39,6 @@
     </div>
 
     <div class="grid md:grid-cols-3 gap-6">
-      
       <a href="hazard.html" class="group bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:border-orange-500 hover:shadow-md transition flex flex-col justify-between">
         <div class="space-y-3">
           <div class="w-10 h-10 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center font-bold text-lg">01</div>
@@ -66,7 +65,18 @@
         </div>
         <span class="mt-6 inline-block text-xs font-bold text-orange-600">クイズに挑戦 →</span>
       </a>
+    </div>
 
+    <div class="bg-white border border-slate-200 rounded-3xl p-6 md:p-8 shadow-sm space-y-4">
+      <div class="flex items-center gap-2 border-b border-slate-100 pb-3">
+        <span class="text-xl">📝</span>
+        <h2 class="text-xl font-bold text-slate-900">探究学習ノート・考察</h2>
+        <span class="text-xs text-slate-400 ml-auto">（content.txt より自動読み込み）</span>
+      </div>
+
+      <div id="learning-content" class="text-sm md:text-base text-slate-700 leading-relaxed whitespace-pre-wrap bg-slate-50 p-6 rounded-2xl border border-slate-100 min-h-[150px]">
+        読み込み中...
+      </div>
     </div>
 
   </main>
@@ -75,6 +85,22 @@
     <p>※本サイトは探究学習の一環として作成したデモサイトです。</p>
     <p>© 2026 飛騨中生防災プロジェクト</p>
   </footer>
+
+  <script>
+    fetch('content.txt')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('ファイルの読み込みに失敗しました');
+        }
+        return response.text();
+      })
+      .then(text => {
+        document.getElementById('learning-content').textContent = text;
+      })
+      .catch(error => {
+        document.getElementById('learning-content').textContent = '学習テキスト（content.txt）の読み込みに失敗しました。ファイルがGitHubに保存されているか確認してください。';
+      });
+  </script>
 
 </body>
 </html>
