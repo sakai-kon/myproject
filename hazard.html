@@ -37,22 +37,22 @@
 
     <div class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm space-y-4">
       <p class="text-sm text-slate-600">
-        下のマップ上で拡大・縮小や移動ができます。自分の家や通学路周辺の「浸水想定区域」や「土砂災害警戒区域」を確認してみましょう。
+        画面上でそのまま拡大・縮小・移動ができます。自分の家や通学路周辺の危険度をチェックしてみよう！
       </p>
 
-      <div class="w-full h-[500px] rounded-xl overflow-hidden border border-slate-300">
+      <div class="w-full h-[550px] rounded-xl overflow-hidden border border-slate-300 relative bg-slate-100">
         <iframe 
           src="https://www.webhazardmap.com/demo_hazardMap/21_Gifu/Hida/map.html?lay=saigai_03" 
           class="w-full h-full border-0"
-          title="飛騨市Webハザードマップ">
+          title="飛騨市Webハザードマップ"
+          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+          loading="lazy">
         </iframe>
       </div>
 
       <div class="flex flex-wrap items-center justify-between text-xs text-slate-500 gap-2 pt-2">
         <p>※出典：<a href="https://www.city.hida.gifu.jp/" target="_blank" rel="noopener" class="underline hover:text-orange-600">飛騨市公式 Webハザードマップ</a></p>
-        <a href="https://www.webhazardmap.com/demo_hazardMap/21_Gifu/Hida/map.html?lay=saigai_03" target="_blank" rel="noopener" class="font-bold text-orange-600 bg-orange-50 px-3 py-1.5 rounded-lg hover:bg-orange-600 hover:text-white transition">
-          全画面で別タブで開く ↗
-        </a>
+        <p class="text-slate-400">※うまく読み込まれない場合はブラウザを再読み込みしてください</p>
       </div>
     </div>
   </main>
