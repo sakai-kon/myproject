@@ -1,1 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>危険を知る | 飛騨防災ガイド</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style> body { font-family: 'Noto Sans JP', sans-serif; } </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
 
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="index.html" class="font-bold text-lg text-orange-600 flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-orange-600"></span>
+        飛騨防災ガイド
+      </a>
+      <nav class="flex gap-4 text-sm font-bold text-slate-600">
+        <a href="hazard.html" class="text-orange-600">ハザードマップ</a>
+        <a href="bag.html" class="hover:text-orange-600 transition">避難バッグ</a>
+        <a href="quiz.html" class="hover:text-orange-600 transition">クイズ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8 space-y-6">
+    <div class="flex items-center justify-between">
+      <div>
+        <span class="text-xs font-bold text-orange-600">SECTION 01</span>
+        <h1 class="text-2xl font-bold text-slate-900">飛騨市 Webハザードマップ</h1>
+      </div>
+      <a href="index.html" class="text-xs font-bold text-slate-500 hover:text-orange-600 transition">← トップへ戻る</a>
+    </div>
+
+    <div class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm space-y-4">
+      <p class="text-sm text-slate-600">
+        下のマップ上で拡大・縮小や移動ができます。自分の家や通学路周辺の「浸水想定区域」や「土砂災害警戒区域」を確認してみましょう。
+      </p>
+
+      <div class="w-full h-[500px] rounded-xl overflow-hidden border border-slate-300">
+        <iframe 
+          src="https://www.webhazardmap.com/demo_hazardMap/21_Gifu/Hida/map.html?lay=saigai_03" 
+          class="w-full h-full border-0"
+          title="飛騨市Webハザードマップ">
+        </iframe>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-between text-xs text-slate-500 gap-2 pt-2">
+        <p>※出典：<a href="https://www.city.hida.gifu.jp/" target="_blank" rel="noopener" class="underline hover:text-orange-600">飛騨市公式 Webハザードマップ</a></p>
+        <a href="https://www.webhazardmap.com/demo_hazardMap/21_Gifu/Hida/map.html?lay=saigai_03" target="_blank" rel="noopener" class="font-bold text-orange-600 bg-orange-50 px-3 py-1.5 rounded-lg hover:bg-orange-600 hover:text-white transition">
+          全画面で別タブで開く ↗
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-400">
+    © 2026 飛騨中生防災プロジェクト
+  </footer>
+
+</body>
+</html>
