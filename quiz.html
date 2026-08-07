@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>防災クイズ | 飛騨防災ガイド</title>
+<meta name="description" content="登校中や学校で災害が起きたら？とっさの判断力を試す防災アクションクイズです。">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="防災クイズ | 飛騨防災ガイド">
+<meta property="og:type" content="website">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .quiz-option { transition: transform .18s var(--ease), border-color .2s, background-color .2s; }
+  .quiz-option:not(:disabled):hover { transform: translateY(-2px); border-color: var(--orange); }
+  .quiz-option:disabled { cursor: default; }
+  .quiz-option.is-correct { border-color: var(--success) !important; background: rgba(22,163,74,.08); }
+  .quiz-option.is-wrong { border-color: var(--danger) !important; background: rgba(220,38,38,.08); }
+  .quiz-feedback { max-height: 0; overflow: hidden; transition: max-height .4s var(--ease); }
+  .quiz-feedback.is-open { max-height: 220px; }
+</style>
+</head>
+<body class="min-h-screen flex flex-col">
+<a href="#main" class="skip-link">本文へスキップ</a>
+
+<header class="site-header">
+  <div class="max-w-6xl mx-auto px-5 md:px-8 h-20 flex items-center justify-between">
+    <a href="index.html" class="font-display font-extrabold text-lg flex items-center gap-2.5" style="color:var(--ink)">
+      <span class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,var(--orange),var(--orange-dark))">
+        <svg viewBox="0 0 24 24" fill="none" class="w-5 h-5"><path d="M3 18L9 7L13 13L17 5L21 18" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      飛騨防災ガイド
+    </a>
+    <nav class="hidden md:flex items-center gap-8" aria-label="メインナビゲーション">
+      <a href="index.html" class="nav-link">ホーム</a>
+      <a href="hazard.html" class="nav-link">避難場所・ハザードマップ</a>
+      <a href="bag.html" class="nav-link">持ち物</a>
+      <a href="knowledge.html" class="nav-link">防災知識</a>
+      <a href="quiz.html" class="nav-link is-active">クイズ</a>
+      <a href="contact.html" class="nav-link">お問い合わせ</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <button data-theme-toggle type="button" class="theme-toggle" aria-label="ダークモード切り替え" aria-pressed="false">
+        <span class="knob"><svg viewBox="0 0 24 24" fill="none" class="w-3 h-3"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+      </button>
+      <button data-menu-toggle type="button" class="md:hidden" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="burger"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" data-mobile-menu class="mobile-menu md:hidden border-t" style="border-color:var(--border);background:var(--surface-glass-strong);backdrop-filter:blur(16px)">
+    <nav class="px-5 py-4 flex flex-col gap-1" aria-label="モバイルナビゲーション">
+      <a href="index.html" class="nav-link py-2.5">ホーム</a>
+      <a href="hazard.html" class="nav-link py-2.5">避難場所・ハザードマップ</a>
+      <a href="bag.html" class="nav-link py-2.5">持ち物</a>
+      <a href="knowledge.html" class="nav-link py-2.5">防災知識</a>
+      <a href="quiz.html" class="nav-link py-2.5">クイズ</a>
+      <a href="contact.html" class="nav-link py-2.5">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="flex-1">
+  <section class="ambient-bg max-w-4xl mx-auto px-5 md:px-8 pt-14 pb-6">
+    <div class="reveal flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <span class="eyebrow">Section 03</span>
+        <h1 class="font-display font-extrabold mt-2" style="font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--ink)">防災アクション・クイズ</h1>
+        <p class="mt-2" style="color:var(--ink-muted)">とっさの判断力を試そう。全<span id="quiz-total">3</span>問。</p>
+      </div>
+      <a href="index.html" class="btn btn-secondary">← トップへ戻る</a>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-5 md:px-8 pb-24">
+    <div class="glass-card p-4 mb-6 reveal flex items-center justify-between">
+      <span class="text-sm font-bold pl-2" style="color:var(--ink-muted)">スコア</span>
+      <span id="quiz-score" class="text-sm font-extrabold pr-2" style="color:var(--orange-dark)">0 / 3 正解</span>
+    </div>
+
+    <div id="quiz-list" class="space-y-6"></div>
+
+    <div id="quiz-result" class="glass-card p-8 text-center mt-6 hidden">
+      <h2 class="font-display font-bold text-xl mb-2" style="color:var(--ink)">お疲れさまでした！</h2>
+      <p id="quiz-result-text" class="text-sm" style="color:var(--ink-muted)"></p>
+      <button id="quiz-retry" class="btn btn-primary mt-5" type="button">もう一度挑戦する</button>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="max-w-6xl mx-auto px-5 md:px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs" style="color:var(--ink-faint)">
+    <p>© 2026 飛騨中生防災プロジェクト. 本サイトは探究学習の一環として制作されたデモサイトです。</p>
+    <div class="flex gap-5">
+      <a href="privacy.html" class="footer-link">プライバシーポリシー</a>
+      <a href="terms.html" class="footer-link">利用規約</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+/* ページ固有のクイズロジック（IIFEでスコープを分離） */
+(() => {
+  'use strict';
+
+  const QUESTIONS = [
+    {
+      q: '登校中に激しい揺れ！横には「古いブロック塀」があります。最初にとるべき行動は？',
+      options: [
+        { text: 'カバンで頭を守り、ブロック塀からすぐに離れる', correct: true, note: 'ブロック塀は地震で最も倒れやすく非常に危険です。カバンなどで頭を保護しながら速やかに離れましょう。' },
+        { text: '倒れてこないようにブロック塀を手で押さえる', correct: false, note: '古いブロック塀は一瞬で崩れ落ちる可能性があります。絶対に近づいたり支えようとしてはいけません。' },
+      ],
+    },
+    {
+      q: '大雨警報が出ている中、川の近くの通学路を歩いていました。とるべき行動は？',
+      options: [
+        { text: '増水の様子を近くで確認してから避難する', correct: false, note: '川は急に増水することがあり、確認している間に危険な状態になる恐れがあります。' },
+        { text: '川からすぐに離れ、高い場所や安全な避難場所へ向かう', correct: true, note: '正解です。増水の兆候があるときは、迷わずすぐに川から離れることが最優先です。' },
+      ],
+    },
+    {
+      q: '避難所に着きました。まず最初にすべきことは？',
+      options: [
+        { text: '受付で氏名を伝え、家族へ安否確認の連絡をする', correct: true, note: '受付で氏名を伝えることで安否確認がスムーズになり、家族への連絡で互いの安心にもつながります。' },
+        { text: 'すぐに友達を探して自由に行動する', correct: false, note: 'まずは受付と安否確認が優先です。落ち着いて避難所のルールに従いましょう。' },
+      ],
+    },
+  ];
+
+  const listEl = document.getElementById('quiz-list');
+  const scoreEl = document.getElementById('quiz-score');
+  const resultEl = document.getElementById('quiz-result');
+  const resultTextEl = document.getElementById('quiz-result-text');
+  const retryBtn = document.getElementById('quiz-retry');
+
+  let score = 0;
+  let answered = 0;
+
+  const render = () => {
+    listEl.innerHTML = '';
+    score = 0;
+    answered = 0;
+    scoreEl.textContent = `0 / ${QUESTIONS.length} 正解`;
+    resultEl.classList.add('hidden');
+
+    QUESTIONS.forEach((item, qIndex) => {
+      const card = document.createElement('div');
+      card.className = 'glass-card p-6 md:p-7 reveal is-visible';
+
+      const badge = document.createElement('span');
+      badge.className = 'eyebrow';
+      badge.textContent = `QUESTION 0${qIndex + 1}`;
+
+      const question = document.createElement('h2');
+      question.className = 'font-bold text-lg mt-2 mb-5';
+      question.style.color = 'var(--ink)';
+      question.textContent = item.q;
+
+      const grid = document.createElement('div');
+      grid.className = 'grid gap-3';
+
+      const feedback = document.createElement('div');
+      feedback.className = 'quiz-feedback mt-4';
+      feedback.innerHTML = `<div class="text-sm leading-relaxed p-4 rounded-xl" style="background:var(--bg-alt);color:var(--ink-muted)"></div>`;
+
+      item.options.forEach((opt) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'quiz-option text-left p-4 rounded-xl font-bold text-sm border-2';
+        btn.style.borderColor = 'var(--border)';
+        btn.style.color = 'var(--ink)';
+        btn.textContent = opt.text;
+
+        btn.addEventListener('click', () => {
+          const buttons = grid.querySelectorAll('button');
+          buttons.forEach((b) => (b.disabled = true));
+          btn.classList.add(opt.correct ? 'is-correct' : 'is-wrong');
+
+          if (!opt.correct) {
+            const correctBtn = Array.from(buttons).find((_, i) => item.options[i].correct);
+            correctBtn?.classList.add('is-correct');
+          } else {
+            score += 1;
+          }
+
+          answered += 1;
+          scoreEl.textContent = `${score} / ${QUESTIONS.length} 正解`;
+
+          const inner = feedback.querySelector('div');
+          inner.textContent = (opt.correct ? '⭕ 正解！ ' : '❌ ざんねん… ') + opt.note;
+          feedback.classList.add('is-open');
+
+          if (answered === QUESTIONS.length) {
+            setTimeout(() => {
+              resultTextEl.textContent = `${QUESTIONS.length}問中 ${score}問正解でした。防災知識ページで詳しい行動のポイントも確認しよう。`;
+              resultEl.classList.remove('hidden');
+            }, 300);
+          }
+        });
+
+        grid.appendChild(btn);
+      });
+
+      card.appendChild(badge);
+      card.appendChild(question);
+      card.appendChild(grid);
+      card.appendChild(feedback);
+      listEl.appendChild(card);
+    });
+  };
+
+  retryBtn.addEventListener('click', render);
+  document.addEventListener('DOMContentLoaded', render);
+})();
+</script>
+</body>
+</html>

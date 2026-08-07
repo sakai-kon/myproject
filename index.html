@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>飛騨防災ガイド | 飛騨中生のための防災探究プロジェクト</title>
+<meta name="description" content="飛騨市の中学生が地域の地形や災害リスクを調査し、ハザードマップ・持ち物チェックリスト・防災クイズにまとめた探究学習の防災ポータルサイトです。">
+<meta name="keywords" content="飛騨市,防災,ハザードマップ,中学生,探究学習,避難,持ち物リスト">
+<meta name="author" content="飛騨中生防災プロジェクト">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<!-- OGP -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="飛騨防災ガイド | 飛騨中生のための防災探究プロジェクト">
+<meta property="og:description" content="飛騨市の中学生が地域の地形や災害リスクを調査し、ハザードマップ・持ち物チェックリスト・防災クイズにまとめた探究学習の防災ポータルサイトです。">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="min-h-screen flex flex-col">
+<a href="#main" class="skip-link">本文へスキップ</a>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="max-w-6xl mx-auto px-5 md:px-8 h-20 flex items-center justify-between">
+    <a href="index.html" class="font-display font-extrabold text-lg flex items-center gap-2.5" style="color:var(--ink)">
+      <span class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,var(--orange),var(--orange-dark))">
+        <svg viewBox="0 0 24 24" fill="none" class="w-5 h-5"><path d="M3 18L9 7L13 13L17 5L21 18" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      飛騨防災ガイド
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8" aria-label="メインナビゲーション">
+      <a href="index.html" class="nav-link is-active">ホーム</a>
+      <a href="hazard.html" class="nav-link">避難場所・ハザードマップ</a>
+      <a href="bag.html" class="nav-link">持ち物</a>
+      <a href="knowledge.html" class="nav-link">防災知識</a>
+      <a href="quiz.html" class="nav-link">クイズ</a>
+      <a href="contact.html" class="nav-link">お問い合わせ</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <button data-theme-toggle type="button" class="theme-toggle" aria-label="ダークモード切り替え" aria-pressed="false">
+        <span class="knob">
+          <svg viewBox="0 0 24 24" fill="none" class="w-3 h-3"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </span>
+      </button>
+      <button data-menu-toggle type="button" class="md:hidden" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="burger"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" data-mobile-menu class="mobile-menu md:hidden border-t" style="border-color:var(--border);background:var(--surface-glass-strong);backdrop-filter:blur(16px)">
+    <nav class="px-5 py-4 flex flex-col gap-1" aria-label="モバイルナビゲーション">
+      <a href="index.html" class="nav-link py-2.5">ホーム</a>
+      <a href="hazard.html" class="nav-link py-2.5">避難場所・ハザードマップ</a>
+      <a href="bag.html" class="nav-link py-2.5">持ち物</a>
+      <a href="knowledge.html" class="nav-link py-2.5">防災知識</a>
+      <a href="quiz.html" class="nav-link py-2.5">クイズ</a>
+      <a href="contact.html" class="nav-link py-2.5">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="flex-1">
+
+  <!-- ================= HERO ================= -->
+  <section class="ambient-bg relative min-h-[92vh] flex items-center pt-10 pb-24" style="background:linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%)">
+    <div class="max-w-6xl mx-auto px-5 md:px-8 w-full grid lg:grid-cols-[1.05fr_0.95fr] gap-14 items-center">
+      <div class="reveal space-y-7">
+        <span class="eyebrow">地域防災探究プロジェクト（飛騨市 × 中学生）</span>
+        <h1 class="font-display font-extrabold leading-[1.15] text-balance" style="font-size:clamp(2.3rem,5vw,3.6rem);color:var(--ink)">
+          災害から、<br>
+          <span style="color:var(--orange)">命を守る。</span>
+        </h1>
+        <p class="text-lg leading-relaxed max-w-lg" style="color:var(--ink-muted)">
+          飛騨中生のための防災ガイド。私たちが暮らす飛騨市の地形と災害リスクを調べ、
+          「知る」「備える」「試す」の3ステップで実践できる情報にまとめました。
+        </p>
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a href="hazard.html" class="btn btn-primary">
+            ハザードマップを見る
+            <svg viewBox="0 0 24 24" fill="none" class="w-4 h-4"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="bag.html" class="btn btn-secondary">避難情報・持ち物を見る</a>
+        </div>
+        <div class="flex items-center gap-6 pt-4 text-sm" style="color:var(--ink-faint)">
+          <div class="flex items-center gap-2">
+            <svg viewBox="0 0 24 24" fill="none" class="w-4 h-4" style="color:var(--blue)"><path d="M12 22s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.8"/></svg>
+            岐阜県 飛騨市
+          </div>
+          <div class="flex items-center gap-2">
+            <svg viewBox="0 0 24 24" fill="none" class="w-4 h-4" style="color:var(--orange)"><path d="M12 8v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/></svg>
+            2026年度 探究学習（マイプロ）
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero illustration: mountains + river, signature motif -->
+      <div class="reveal-zoom relative">
+        <div class="glass-card p-3 md:p-5">
+          <svg viewBox="0 0 520 420" class="w-full h-auto rounded-2xl" role="img" aria-label="飛騨市の山々と清流をイメージしたイラスト">
+            <defs>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#eaf1ff"/>
+                <stop offset="100%" stop-color="#fff1e6"/>
+              </linearGradient>
+              <linearGradient id="mtn1" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ffb27a"/>
+                <stop offset="100%" stop-color="#ff7a30"/>
+              </linearGradient>
+              <linearGradient id="mtn2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#6f97ff"/>
+                <stop offset="100%" stop-color="#2f6fed"/>
+              </linearGradient>
+              <linearGradient id="river" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#2f6fed"/>
+                <stop offset="100%" stop-color="#6f97ff"/>
+              </linearGradient>
+            </defs>
+            <rect width="520" height="420" rx="20" fill="url(#sky)"/>
+            <circle cx="420" cy="86" r="40" fill="#ffffff" opacity="0.7"/>
+            <path d="M-10 260 L110 120 L190 200 L260 90 L340 210 L410 140 L540 260 Z" fill="url(#mtn2)" opacity="0.55"/>
+            <path d="M-10 300 L90 170 L170 250 L250 130 L330 260 L420 180 L540 300 Z" fill="url(#mtn1)"/>
+            <path d="M0 420 C 90 330, 150 340, 210 300 C 280 255, 320 300, 360 340 C 410 390, 470 380, 520 340 L520 420 Z" fill="url(#river)" opacity="0.85"/>
+            <path d="M0 420 C 90 330, 150 340, 210 300 C 280 255, 320 300, 360 340 C 410 390, 470 380, 520 340 L520 420 Z" fill="#ffffff" opacity="0.12"/>
+          </svg>
+          <div class="flex items-center justify-between px-2 pt-3 pb-1 text-xs font-bold" style="color:var(--ink-faint)">
+            <span>山と清流に囲まれた飛騨市</span>
+            <span style="color:var(--blue)">大雨・土砂災害への備えが重要</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 3 STEPS ================= -->
+  <section class="max-w-6xl mx-auto px-5 md:px-8 py-24">
+    <div class="text-center max-w-xl mx-auto mb-14 reveal">
+      <span class="eyebrow justify-center">3つのステップ</span>
+      <h2 class="font-display font-extrabold mt-3 text-balance" style="font-size:clamp(1.6rem,3vw,2.2rem);color:var(--ink)">知る、備える、試す。</h2>
+      <p class="mt-3" style="color:var(--ink-muted)">災害への備えは特別なことではありません。順番に取り組めば、誰でも今日から始められます。</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <a href="hazard.html" class="glass-card is-hoverable p-7 flex flex-col reveal">
+        <div class="icon-badge blue mb-5">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M3 18L9 7L13 13L17 5L21 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="font-display font-bold text-xl mb-2" style="color:var(--ink)">危険を知る</h3>
+        <p class="text-sm leading-relaxed flex-1" style="color:var(--ink-muted)">飛騨市公式のWebハザードマップで、自分の地域や通学路の危険スポットを確認しよう。</p>
+        <span class="mt-6 inline-flex items-center gap-1.5 text-sm font-bold" style="color:var(--orange-dark)">
+          マップを見る
+          <svg viewBox="0 0 24 24" fill="none" class="w-4 h-4"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+      <a href="bag.html" class="glass-card is-hoverable p-7 flex flex-col reveal" style="transition-delay:.08s">
+        <div class="icon-badge mb-5">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M8 8V6a4 4 0 018 0v2M6 8h12l1 12a2 2 0 01-2 2H7a2 2 0 01-2-2L6 8z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="font-display font-bold text-xl mb-2" style="color:var(--ink)">備える</h3>
+        <p class="text-sm leading-relaxed flex-1" style="color:var(--ink-muted)">中学生に必要な非常用持ち出し品をリスト化。チェックを付ければ準備状況が保存されます。</p>
+        <span class="mt-6 inline-flex items-center gap-1.5 text-sm font-bold" style="color:var(--orange-dark)">
+          リストをチェック
+          <svg viewBox="0 0 24 24" fill="none" class="w-4 h-4"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+      <a href="quiz.html" class="glass-card is-hoverable p-7 flex flex-col reveal" style="transition-delay:.16s">
+        <div class="icon-badge blue mb-5">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M9 9a3 3 0 116 0c0 2-3 2-3 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="17.5" r="0.9" fill="currentColor"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/></svg>
+        </div>
+        <h3 class="font-display font-bold text-xl mb-2" style="color:var(--ink)">試す</h3>
+        <p class="text-sm leading-relaxed flex-1" style="color:var(--ink-muted)">登校中や学校で災害が発生したら？クイズ形式でとっさの判断力を試そう。</p>
+        <span class="mt-6 inline-flex items-center gap-1.5 text-sm font-bold" style="color:var(--orange-dark)">
+          クイズに挑戦
+          <svg viewBox="0 0 24 24" fill="none" class="w-4 h-4"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ================= HIDA CONTEXT ================= -->
+  <section class="py-20" style="background:var(--bg-alt)">
+    <div class="max-w-6xl mx-auto px-5 md:px-8 grid lg:grid-cols-2 gap-12 items-center">
+      <div class="reveal space-y-5">
+        <span class="eyebrow">飛騨市の地形と災害リスク</span>
+        <h2 class="font-display font-extrabold text-balance" style="font-size:clamp(1.5rem,3vw,2rem);color:var(--ink)">
+          美しい山々と清流。<br>だからこそ知っておきたいこと。
+        </h2>
+        <p class="leading-relaxed" style="color:var(--ink-muted)">
+          飛騨市は美しい山々と清流に囲まれた地域ですが、大雨による河川の増水・氾濫や土砂災害のリスクが高いエリアでもあります。通学路周辺の斜面や古いブロック塀は、事前にチェックしておくことが大切です。
+        </p>
+        <a href="knowledge.html" class="inline-flex items-center gap-1.5 text-sm font-bold" style="color:var(--blue)">
+          防災知識をもっと見る
+          <svg viewBox="0 0 24 24" fill="none" class="w-4 h-4"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="solid-card p-5 reveal" style="transition-delay:.05s">
+          <div class="icon-badge blue mb-3 w-11 h-11"><svg viewBox="0 0 24 24" fill="none" class="w-5 h-5"><path d="M12 3v4M12 3c-3 3-5 6-5 9a5 5 0 0010 0c0-3-2-6-5-9z" stroke="currentColor" stroke-width="1.8"/></svg></div>
+          <p class="font-bold text-sm" style="color:var(--ink)">大雨・河川増水</p>
+          <p class="text-xs mt-1" style="color:var(--ink-muted)">河川の氾濫・浸水に注意</p>
+        </div>
+        <div class="solid-card p-5 reveal" style="transition-delay:.1s">
+          <div class="icon-badge mb-3 w-11 h-11"><svg viewBox="0 0 24 24" fill="none" class="w-5 h-5"><path d="M3 20l5-9 3 4 3-6 4 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p class="font-bold text-sm" style="color:var(--ink)">土砂災害</p>
+          <p class="text-xs mt-1" style="color:var(--ink-muted)">斜面付近は特に警戒を</p>
+        </div>
+        <div class="solid-card p-5 reveal" style="transition-delay:.15s">
+          <div class="icon-badge blue mb-3 w-11 h-11"><svg viewBox="0 0 24 24" fill="none" class="w-5 h-5"><path d="M12 2l2.5 6H21l-5 4 2 6.5L12 15l-6 3.5 2-6.5-5-4h6.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+          <p class="font-bold text-sm" style="color:var(--ink)">ブロック塀</p>
+          <p class="text-xs mt-1" style="color:var(--ink-muted)">古い塀は地震で倒壊の恐れ</p>
+        </div>
+        <div class="solid-card p-5 reveal" style="transition-delay:.2s">
+          <div class="icon-badge mb-3 w-11 h-11"><svg viewBox="0 0 24 24" fill="none" class="w-5 h-5"><path d="M4 12h4l2-4 3 8 2-4h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p class="font-bold text-sm" style="color:var(--ink)">地震</p>
+          <p class="text-xs mt-1" style="color:var(--ink-muted)">通学路の危険箇所を確認</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LEARNING NOTE ================= -->
+  <section class="max-w-4xl mx-auto px-5 md:px-8 py-24">
+    <div class="glass-card p-7 md:p-10 reveal">
+      <div class="flex items-center gap-3 pb-5 mb-2 border-b" style="border-color:var(--border-soft)">
+        <div class="icon-badge w-10 h-10"><svg viewBox="0 0 24 24" fill="none" class="w-5 h-5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20M4 19.5A2.5 2.5 0 006.5 22H20V4a2 2 0 00-2-2H6.5A2.5 2.5 0 004 4.5v15z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+        <div>
+          <h2 class="font-display font-bold text-lg" style="color:var(--ink)">探究学習ノート・考察</h2>
+          <p class="text-xs" style="color:var(--ink-faint)">content.txt を自動で読み込んでいます</p>
+        </div>
+      </div>
+      <div id="learning-content" class="text-sm md:text-base leading-loose whitespace-pre-wrap p-6 rounded-2xl" style="color:var(--ink);background:var(--bg-alt);min-height:150px">
+        読み込み中...
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA BAND ================= -->
+  <section class="max-w-6xl mx-auto px-5 md:px-8 pb-24">
+    <div class="reveal-zoom rounded-[28px] px-8 py-14 md:py-16 text-center relative overflow-hidden" style="background:linear-gradient(135deg,var(--orange),var(--orange-dark))">
+      <div class="absolute inset-0 opacity-20" style="background:radial-gradient(circle at 20% 20%, #fff, transparent 45%)"></div>
+      <div class="relative">
+        <h2 class="font-display font-extrabold text-white text-2xl md:text-3xl text-balance">今日、家族と1つだけ話しておこう。</h2>
+        <p class="text-white/85 mt-3 max-w-lg mx-auto">避難場所と安否確認の方法（171・LINEなど）を確認するだけでも、いざという時の安心につながります。</p>
+        <a href="knowledge.html" class="btn mt-7" style="background:#fff;color:var(--orange-dark)">防災知識を見る</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="max-w-6xl mx-auto px-5 md:px-8 py-16 grid sm:grid-cols-2 lg:grid-cols-5 gap-10">
+    <div class="lg:col-span-2 space-y-4">
+      <a href="index.html" class="font-display font-extrabold text-lg flex items-center gap-2.5" style="color:var(--ink)">
+        <span class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,var(--orange),var(--orange-dark))">
+          <svg viewBox="0 0 24 24" fill="none" class="w-4 h-4"><path d="M3 18L9 7L13 13L17 5L21 18" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        飛騨防災ガイド
+      </a>
+      <p class="text-sm leading-relaxed max-w-xs" style="color:var(--ink-muted)">
+        飛騨市の中学生が地域の防災を調べ、まとめた探究学習（マイプロ）作品です。実際の避難行動は必ず自治体の最新情報・指示に従ってください。
+      </p>
+      <div class="flex gap-3 pt-1">
+        <a href="#" class="social-dot" aria-label="X（Twitter）"><svg viewBox="0 0 24 24" fill="none" class="w-4 h-4"><path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a>
+        <a href="#" class="social-dot" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" class="w-4 h-4"><rect x="4" y="4" width="16" height="16" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.8"/></svg></a>
+        <a href="#" class="social-dot" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" class="w-4 h-4"><rect x="3" y="6" width="18" height="12" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M11 10l4 2-4 2z" fill="currentColor"/></svg></a>
+      </div>
+    </div>
+
+    <div class="space-y-3">
+      <p class="footer-heading">サイトについて</p>
+      <a href="index.html" class="footer-link block">プロジェクトの目的</a>
+      <a href="knowledge.html" class="footer-link block">防災知識</a>
+      <a href="contact.html" class="footer-link block">お問い合わせ</a>
+    </div>
+
+    <div class="space-y-3">
+      <p class="footer-heading">コンテンツ</p>
+      <a href="hazard.html" class="footer-link block">ハザードマップ</a>
+      <a href="bag.html" class="footer-link block">持ち物リスト</a>
+      <a href="quiz.html" class="footer-link block">防災クイズ</a>
+    </div>
+
+    <div class="space-y-3">
+      <p class="footer-heading">参考資料・規約</p>
+      <a href="https://www.city.hida.gifu.jp/" target="_blank" rel="noopener" class="footer-link block">飛騨市公式サイト ↗</a>
+      <a href="privacy.html" class="footer-link block">プライバシーポリシー</a>
+      <a href="terms.html" class="footer-link block">利用規約</a>
+    </div>
+  </div>
+
+  <div class="border-t py-6" style="border-color:var(--border)">
+    <div class="max-w-6xl mx-auto px-5 md:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs" style="color:var(--ink-faint)">
+      <p>© 2026 飛騨中生防災プロジェクト. 本サイトは探究学習の一環として制作されたデモサイトです。</p>
+      <p>Data: 飛騨市 Webハザードマップ</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
